@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" MaxHeight="700" MaxWidth="600" MinWidth="600" BorderThickness="1" BorderBrush="Black" Loaded="Window_Loaded">
-
+      
     <Grid Margin="10,10,10,10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="33*"/>
@@ -26,12 +26,26 @@
         <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="40,0,0,0">
             <Label Content="Choose League" Width="100" HorizontalAlignment="Left"/>
             <!--Listbox to display league choices-->
-            <ListBox Name="LstBoxLeagueChoice" Height="150" HorizontalAlignment="Left" Width="300"/>
+            <ListBox Name="LstBoxLeagueChoice" Height="150" HorizontalAlignment="Left" 
+                     Width="300">
+               <!--CHANGING THE FONT STYLE OF THE SELECTED ITEM IN THE LISTBOX-->
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True" >                                
+                                <Setter Property="FontWeight" Value="Bold" />
+                                <Setter Property="FontSize" Value="13px"/>                                
+                                <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
+                        </Style.Triggers>                       
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
         </StackPanel>
         
         <Label Content="Season: " Grid.Column="2" Grid.Row="1" Width="50" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,30,0,0"/>
         <!--Combobox to display seasons options-->
-        <ComboBox Name="LstBoxDisplaySeason" Width="120" Grid.Column="2" Grid.Row="1" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,30,30,0" SelectionChanged="LstBoxDisplaySeason_SelectionChanged"/>
+        <ComboBox x:Name="ComboBoxDisplaySeason" Width="120" Grid.Column="2" Grid.Row="1" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,30,30,0" SelectionChanged="LstBoxDisplaySeason_SelectionChanged"/>
         <!--Button to display the league table-->
         <Button Name="BtnDisplayTable" Content="Done" Grid.Row="2" Grid.Column="2" Width="100" Height="30" Margin="0,0,0,30"/>
         

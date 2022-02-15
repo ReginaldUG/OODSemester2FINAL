@@ -32,7 +32,7 @@ namespace Project
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-         //Testing the Itemsource for the Seasons Display   
+         //Testing the Itemsource for the Seasons choice Display   
             string[] testSeasons = { "2021/2022", "2020/2021", "2019/2020" };
 
             List<string> Seasons = new List<string>();
@@ -40,8 +40,20 @@ namespace Project
             {
                 Seasons.Add(seasondates);
             }
-            LstBoxDisplaySeason.ItemsSource = Seasons;
-                //WORKS
+            ComboBoxDisplaySeason.ItemsSource = Seasons;
+            //WORKS
+
+         //Testing the League choice selector
+            string[] testLeagueschoice = {"La Liga", "Premier League", "Serie A", "Ligue 1", "Bundesliga" };
+            List<string> LeagueChoice = new List<string>();
+            foreach (string leaguechoices in testLeagueschoice)
+            {
+                LeagueChoice.Add(leaguechoices);
+            }
+            LstBoxLeagueChoice.ItemsSource = LeagueChoice;
+            //WORKS
         }
+
+        
     }
 }
